@@ -7,7 +7,7 @@
 //define your token
 //http://***/we-test.php?echostr=123?signature=ebb2f8651e4619c6ca5c943817564a5868f0cd74&timestamp=bb&nonce=cc
 $tok = $_GET['tok'];
-require('pdo.php');
+include 'pdo.php';
 $data = $pdo -> query("select * from account where tok = '$tok'") -> fetch(PDO::FETCH_ASSOC);
 //var_dump($data['we_id']);die;
 //var_dump($data);die;
