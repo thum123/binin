@@ -17,11 +17,12 @@ error_reporting(0);
 		{
 			$url1 = 'http://'.$_SERVER['HTTP_HOST'].'/'.$url.'web/index.php?r=login/login';
 				echo "<script>alert('数据库地址或用户名密码填写错误!')</script>";
-				 header("refresh:0;url=$url1");die;
+				 header("refresh:0;url=web/index.php?r=login/login");die;
 		}
 		else
 		{
-			$url2 = 'http://'.$_SERVER['HTTP_HOST'].'/'.$url.'web/index.php?r=login/anzhuang';
+			$url2 = 'http://'.$_SERVER['HTTP_HOST'].$url.'web/index.php?r=login/anzhuang';
+			//var_dump($url2);die;
 			$url1 = 'http://'.$_SERVER['HTTP_HOST'].'/'.$url.'web/index.php?r=login/login';
 			//创建表和库
 			$database="$ku_name";
@@ -92,18 +93,19 @@ error_reporting(0);
 						file_put_contents('pdo.php', $reg);
 						if($res)
 						{
-							 header("refresh:0;url=$url2");die;
+							header("refresh:2;url=web/index.php?r=login/anzhuang");die;
+
 						}
 						else
 						{
-							 header("refresh:0;url=$url1");die;
+							 header("refresh:0;url=web/index.php?r=login/login");die;
 						}
 			}
 			else
 			{
 				// echo '创建数据库错误'.mysql_error();
 				echo "<script>alert('创建数据库错误".mysql_error()."')</script>";
-				 header("refresh:0;url=$url1");die;
+				 header("refresh:0;url=web/index.php?r=login/login");die;
 			}
 
 
